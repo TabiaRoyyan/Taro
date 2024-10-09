@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maafin aku ya Alya:)</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            background-color: #ffe4e1;
+            padding: 50px;
+            overflow: hidden;
+        }
+        .container {
+            background-color: #fff;
+            border: 3px solid #ff69b4;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: inline-block;
+            animation: pulse 1.5s infinite;
+            position: relative;
+        }
+        h1 {
+            color: #ff1493;
+        }
+        p {
+            font-size: 1.2em;
+            color: #333;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        #yes-btn {
+            background-color: #ff69b4;
+            color: white;
+        }
+        #no-btn {
+            background-color: #f08080;
+            color: white;
+            position: absolute;
+        }
+        #yes-btn:hover {
+            background-color: #ff1493;
+            transform: scale(1.2);
+        }
+        #no-btn:hover {
+            background-color: #ff6347;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes bloom {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+
+        #congrats-message {
+            display: none;
+            font-size: 2em;
+            color: #ff1493;
+            margin-top: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .flower {
+            width: 50px;
+            height: 50px;
+            background: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngwing.com%2Fes%2Ffree-png-vfdkz&psig=AOvVaw3QM876WaUuYEFrEhkdb4bT&ust=1728560487558000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKj7guKbgYkDFQAAAAAdAAAAABAJ') no-repeat center;
+            background-size: cover;
+            position: absolute;
+            animation: bloom 1.5s ease-in-out;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Maafin aku ga!!!!</h1>
+    <p>"Maafkanlah, Niscaya kamu akan dimaafkan (Oleh Allah)" HR At Thabrani</p>
+    <div class="buttons">
+        <button id="yes-btn" onclick="yesClick()">Iya</button>
+        <button id="no-btn" onmouseover="moveNoButton()">ga</button>
+    </div>
+    <div id="congrats-message">Alhamdulillah, porschenya gausah brrt ya💖</div>
+</div>
+
+<div class="flower" id="flower1"></div>
+<div class="flower" id="flower2"></div>
+<div class="flower" id="flower3"></div>
+
+<script>
+    function yesClick() {
+        // Tampilkan pesan selamat
+        document.getElementById('congrats-message').style.display = 'block';
+
+        // Tampilkan animasi bunga
+        let flower1 = document.getElementById('flower1');
+        let flower2 = document.getElementById('flower2');
+        let flower3 = document.getElementById('flower3');
+
+        flower1.style.display = 'block';
+        flower2.style.display = 'block';
+        flower3.style.display = 'block';
+
+        // Atur posisi bunga secara acak
+        flower1.style.top = Math.random() * window.innerHeight + "px";
+        flower1.style.left = Math.random() * window.innerWidth + "px";
+
+        flower2.style.top = Math.random() * window.innerHeight + "px";
+        flower2.style.left = Math.random() * window.innerWidth + "px";
+
+        flower3.style.top = Math.random() * window.innerHeight + "px";
+        flower3.style.left = Math.random() * window.innerWidth + "px";
+    }
+
+    function moveNoButton() {
+        var noButton = document.getElementById("no-btn");
+        var container = document.querySelector('.container');
+
+        // Dapatkan ukuran layar
+        var windowWidth = window.innerWidth;
+        var windowHeight = window.innerHeight;
+
+        // Dapatkan ukuran tombol
+        var buttonWidth = noButton.offsetWidth;
+        var buttonHeight = noButton.offsetHeight;
+
+        // Dapatkan posisi acak yang baru untuk tombol, di dalam batas layar
+        var newLeft = Math.random() * (windowWidth - buttonWidth);
+        var newTop = Math.random() * (windowHeight - buttonHeight);
+
+        // Ubah posisi tombol
+        noButton.style.left = newLeft + "px";
+        noButton.style.top = newTop + "px";
+    }
+</script>
+
+</body>
+</html>
